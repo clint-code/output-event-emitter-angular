@@ -1,16 +1,21 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-child-comp',
   template: `
-         <button (click)="sendMessage()">Send Message</button>
+        Father says: {{messageForChild}}
+        <br/>
+         <button (click)="sendMessage()">Send Message to Son</button>
+         <br/>
   `,
   styleUrls: ['./child-comp.component.scss']
 })
 
 export class ChildCompComponent {
 
-    message: string = "Hello there!";
+    @Input()messageForChild: string;
+
+    message: string = "Sir, yes sir!";
 
     @Output() messageEvent = new EventEmitter<string>();
 

@@ -4,11 +4,16 @@ import { Component} from "@angular/core";
   selector: 'app-parent-comp',
   template: `
   <app-child-comp
-      (messageEvent)="receiveMessageFromChild($event)">
-  </app-child-comp>`,
+      [messageForChild]="parentMessage"
+      (messageEvent)="receiveMessageFromChild($event)"
+      >
+  </app-child-comp>
+  Response from son: {{message}}`,
   styleUrls: ['./parent-comp.component.scss']
 })
 export class ParentCompComponent {
+
+  parentMessage = "Tidy your room, young man!";
 
   constructor() {}
 
